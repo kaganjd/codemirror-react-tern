@@ -10,9 +10,15 @@ import 'codemirror/addon/tern/tern.css';
 
 import es6 from 'codemirror/addon/tern/defs/ecmascript.json';
 import Tern from 'tern';
+import 'tern/lib/signal';
+import 'tern/lib/tern';
+import 'tern/lib/def';
+import 'tern/lib/comment';
+import 'tern/lib/infer';
+import 'tern/plugin/doc_comment';
 
 module.exports = function (cm) {
-  new CodeMirror.TernServer({ defs: es6 });
+  const tern = new CodeMirror.TernServer({ defs: es6 });
   cm.setOption('extraKeys', {
     'Ctrl-Space': cm => tern.complete(cm),
     'Ctrl-I': cm => tern.showType(cm),
