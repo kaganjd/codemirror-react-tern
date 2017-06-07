@@ -13,6 +13,8 @@ class Editor extends React.Component {
       styleActiveLine: true,
       mode: 'javascript'
     });
+
+    this.tern = require('../utils/installTern')(this._cm)
   }
 
   render() {
