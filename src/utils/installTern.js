@@ -2,20 +2,20 @@
 import CodeMirror from 'codemirror';
 import 'codemirror/addon/dialog/dialog';
 import 'codemirror/addon/hint/show-hint';
+import 'imports-loader?tern=tern!codemirror/addon/tern/tern';
 
 import 'codemirror/addon/dialog/dialog';
 import 'codemirror/addon/hint/show-hint';
-import 'codemirror/addon/tern/tern.js';
 import 'codemirror/addon/tern/tern.css';
 
+// import 'tern/lib/signal';
+// import 'tern/lib/tern';
+// import 'tern/lib/def';
+// import 'tern/lib/comment';
+// import 'tern/lib/infer';
+// import 'tern/plugin/doc_comment';
+
 import es6 from 'codemirror/addon/tern/defs/ecmascript.json';
-import Tern from 'tern';
-import 'tern/lib/signal';
-import 'tern/lib/tern';
-import 'tern/lib/def';
-import 'tern/lib/comment';
-import 'tern/lib/infer';
-import 'tern/plugin/doc_comment';
 
 module.exports = function (cm) {
   const tern = new CodeMirror.TernServer({ defs: es6 });
