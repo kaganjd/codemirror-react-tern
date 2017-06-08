@@ -22,7 +22,8 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: [
-          'react-hot-loader', 
+          'react-hot-loader',
+          'imports-loader',
           'babel-loader']
       },
       {
@@ -32,10 +33,6 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'css-loader'
-      },
-      {
-        test: require.resolve('tern'),
-        loader: 'imports-loader?tern=tern!codemirror/addon/tern/tern'
       }
     ]
   },

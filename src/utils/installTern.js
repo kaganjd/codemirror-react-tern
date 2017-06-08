@@ -15,7 +15,7 @@ import 'codemirror/addon/tern/tern.css';
 // import 'tern/lib/infer';
 // import 'tern/plugin/doc_comment';
 
-import es6 from 'codemirror/addon/tern/defs/ecmascript.json';
+import es6 from 'tern/defs/ecmascript.json';
 
 module.exports = function (cm) {
   const tern = new CodeMirror.TernServer({ defs: es6 });
