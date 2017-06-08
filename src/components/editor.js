@@ -18,8 +18,21 @@ class Editor extends React.Component {
   }
 
   render() {
-    return <div ref={(element) => { this.codemirrorContainer = element; }}>
-        </div>;
+    return (
+      <div>
+      <div ref={(element) => { this.codemirrorContainer = element; }}>
+        </div>
+      <ul>
+        <li>Ctrl-Space: complete</li>
+        <li>Ctrl-I: show type</li>
+        <li>Ctrl-O: show docs</li>
+        <li>Alt-.: jump to def</li>
+        <li>Alt-,: jump back</li>
+        <li>Ctrl-Q: rename</li>
+        <li>Ctrl-.: select name</li>
+      </ul>
+      </div>
+    );
   }
 }
 
