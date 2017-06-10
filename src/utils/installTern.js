@@ -1,19 +1,13 @@
 // github.com/wonderstudio/src/editor/installTern.js
 import CodeMirror from 'codemirror';
-import 'codemirror/addon/dialog/dialog';
-import 'codemirror/addon/hint/show-hint';
 import 'imports-loader?tern=tern!codemirror/addon/tern/tern';
 
-// codemirror hint for css, non-JS stuff:
-// hint/show-hint.js
-// hint/html-hint.js
-// hint/css-hint.js
-import 'codemirror/addon/hint/show-hint';
-
-import es6 from 'codemirror/addon/tern/defs/ecmascript.json';
+// TODO: figure out why in example code -- http://ternjs.net/doc/demo/#ES6 -- 
+// 'elt' at line 12 doesn't register as a number on ctrl-i
+import ecma from 'tern/defs/ecmascript.json';
 
 module.exports = function (cm) {
-  const tern = new CodeMirror.TernServer({ defs: [es6] });
+  const tern = new CodeMirror.TernServer({ defs: [ecma] });
   cm.setOption('extraKeys', {
     'Ctrl-Space': cm => tern.complete(cm),
     'Ctrl-I': cm => tern.showType(cm),
