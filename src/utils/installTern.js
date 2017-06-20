@@ -6,9 +6,10 @@ import 'tern/plugin/doc_comment';
 import 'tern/plugin/complete_strings';
 
 import ecma from 'tern/defs/ecmascript.json';
+import p5 from '../../p5.json';
 
 module.exports = function (cm) {
-  const tern = new CodeMirror.TernServer({ defs: [ecma] });
+  const tern = new CodeMirror.TernServer({ defs: [ecma, p5] });
   cm.setOption('extraKeys', {
     'Ctrl-Space': cm => tern.complete(cm),
     'Ctrl-I': cm => tern.showType(cm),
