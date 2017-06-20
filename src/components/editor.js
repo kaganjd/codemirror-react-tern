@@ -2,11 +2,8 @@ import React, { PropTypes } from 'react';
 import CodeMirror from 'codemirror';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/addon/selection/active-line';
-
-// codemirror hint for css, non-JS stuff:
-// hint/show-hint.js
-// hint/html-hint.js
-// hint/css-hint.js
+import 'codemirror/addon/comment/comment';
+import 'codemirror/addon/hint/show-hint';
 
 class Editor extends React.Component {
   _cm: CodeMirror.Editor
