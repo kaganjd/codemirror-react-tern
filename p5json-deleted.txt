@@ -1,0 +1,9 @@
+loadModel
+  "!type": "fn(path: string, normalize?: bool, successCallback?: Function(p5.Geometry3D), failureCallback?: Function(Event)) -> +p5.Geometry",
+
+loadImage
+  "!type": "fn(path: string, successCallback?: Function(p5.Image), failureCallback?: Function(Event)) -> +Image.p5.Image",
+
+p5.Score    
+    "!type": "fn(part(s): p5.sound.p5.Part) -> +p5.sound.p5.Score",
+
