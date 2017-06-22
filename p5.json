@@ -1,7 +1,7 @@
 {
  "!name": "yui",
  "!define": {
-  "undefined": {
+  "Conversion": {
    "p5": {
     "!type": "fn()",
     "!url": "http://yuilibrary.com/yui/docs/classes/p5.html",
@@ -195,8 +195,8 @@
       "!url": "http://yuilibrary.com/yui/docs/classes/p5.html#method_strokeWeight"
      },
      "undefined": {
-      "!type": "fn()",
-      "!doc": "<p>Parse OBJ lines into model. For reference, this is what a simple model of a\nsquare might look like:</p>\n<p>v -0.5 -0.5 0.5\nv -0.5 -0.5 -0.5\nv -0.5 0.5 -0.5\nv -0.5 0.5 0.5</p>\n<p>f 4 3 2 1</p>\n",
+      "!type": "fn(x0: number, y0: number, z0: number, x1: number, y1: number, z1: number) -> +P5",
+      "!doc": "<p>Draw a line given two points</p>\n",
       "!url": "http://yuilibrary.com/yui/docs/classes/p5.html"
      },
      "bezier": {
@@ -275,6 +275,7 @@
       "!url": "http://yuilibrary.com/yui/docs/classes/p5.html#method_vertex"
      },
      "loadModel": {
+      "!type": "fn(path: string, normalize?: bool, successCallback?: fn(p5.Geometry3D), failureCallback?: fn(Event)) -> +p5.Geometry",
       "!doc": "<p>Load a 3d model from an OBJ file.\n<br><br>\nOne of the limitations of the OBJ format is that it doesn&#39;t have a built-in\nsense of scale. This means that models exported from different programs might\nbe very different sizes. If your model isn&#39;t displaying, try calling\nloadModel() with the normalized parameter set to true. This will resize the\nmodel to a scale appropriate for p5. You can also make additional changes to\nthe final size of your model with the scale() function.</p>\n",
       "!url": "http://yuilibrary.com/yui/docs/classes/p5.html#method_loadModel"
      },
@@ -564,7 +565,7 @@
      },
      "mouseWheel": {
       "!type": "fn(fxn: fn()) -> +DOM.p5.Element",
-      "!doc": "<p>The .mouseWheel() function is called once after every time a\nmouse wheel is scrolled over the element. This can be used to\nattach element specific event listeners.\n<br><br>\nThe function accepts a callback function as argument which will be executed\nwhen the <code>wheel</code> event is triggered on the element, the callabck function is\npassed one argument <code>event</code>. The <code>event.deltaY</code> property returns negative\nvalues if the mouse wheel is rotated up or away from the user and positive\nin the other direction. The <code>event.deltaX</code> does the same as <code>event.deltaY</code>\nexcept it reads the horizontal wheel scroll of the mouse wheel.\n<br><br>\nOn OS X with &quot;natural&quot; scrolling enabled, the <code>event.deltaY</code> values are\nreversed.</p>\n",
+      "!doc": "<p>The .mouseWheel() function is called once after every time a\nmouse wheel is scrolled over the element. This can be used to\nattach element specific event listeners.\n<br><br>\nThe function accepts a callback function as argument which will be executed\nwhen the <code>wheel</code> event is triggered on the element, the callback function is\npassed one argument <code>event</code>. The <code>event.deltaY</code> property returns negative\nvalues if the mouse wheel is rotated up or away from the user and positive\nin the other direction. The <code>event.deltaX</code> does the same as <code>event.deltaY</code>\nexcept it reads the horizontal wheel scroll of the mouse wheel.\n<br><br>\nOn OS X with &quot;natural&quot; scrolling enabled, the <code>event.deltaY</code> values are\nreversed.</p>\n",
       "!url": "http://yuilibrary.com/yui/docs/classes/p5.Element.html#method_mouseWheel"
      },
      "mouseReleased": {
@@ -1013,6 +1014,7 @@
       "!url": "http://yuilibrary.com/yui/docs/classes/p5.html#method_saveFrames"
      },
      "loadImage": {
+      "!type": "fn(path: string, successCallback?: fn(p5.Image), failureCallback?: fn(Event)) -> +Image.p5.Image",
       "!doc": "<p>Loads an image from a path and creates a p5.Image from it.\n<br><br>\nThe image may not be immediately available for rendering\nIf you want to ensure that the image is ready before doing\nanything with it, place the loadImage() call in preload().\nYou may also supply a callback function to handle the image when it&#39;s ready.\n<br><br>\nThe path to the image should be relative to the HTML file\nthat links in your sketch. Loading an from a URL or other\nremote location may be blocked due to your browser&#39;s built-in\nsecurity.</p>\n",
       "!url": "http://yuilibrary.com/yui/docs/classes/p5.html#method_loadImage"
      },
@@ -1183,7 +1185,7 @@
      },
      "loadXML": {
       "!type": "fn(filename: string, callback?: fn(), errorCallback?: fn()) -> +Object",
-      "!doc": "<p>Reads the contents of a file and creates an XML object with its values.\nIf the name of the file is used as the parameter, as in the above example,\nthe file must be located in the sketch directory/folder.</p>\n<p>Alternatively, the file maybe be loaded from anywhere on the local\ncomputer using an absolute path (something that starts with / on Unix and\nLinux, or a drive letter on Windows), or the filename parameter can be a\nURL for a file found on a network.</p>\n<p>This method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed. Calling loadXML() inside preload()\nguarantees to complete the operation before setup() and draw() are called.</p>\n<p>Outside of preload(), you may supply a callback function to handle the\nobject:</p>",
+      "!doc": "<p>Reads the contents of a file and creates an XML object with its values.\nIf the name of the file is used as the parameter, as in the above example,\nthe file must be located in the sketch directory/folder.</p>\n<p>Alternatively, the file maybe be loaded from anywhere on the local\ncomputer using an absolute path (something that starts with / on Unix and\nLinux, or a drive letter on Windows), or the filename parameter can be a\nURL for a file found on a network.</p>\n<p>This method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed. Calling loadXML() inside preload()\nguarantees to complete the operation before setup() and draw() are called.</p>\n<p>Outside of preload(), you may supply a callback function to handle the\nobject.</p>\n",
       "!url": "http://yuilibrary.com/yui/docs/classes/p5.html#method_loadXML"
      },
      "httpGet": {
@@ -3373,6 +3375,7 @@
     }
    },
    "p5.Score": {
+    "!type": "fn(part: p5.sound.p5.Part) -> +p5.sound.p5.Score",
     "!doc": "<p>A Score consists of a series of Parts. The parts will\nbe played back in order. For example, you could have an\nA part, a B part, and a C part, and play them back in this order\n<code>new p5.Score(a, a, b, a, c)</code></p>\n",
     "!url": "http://yuilibrary.com/yui/docs/classes/p5.Score.html",
     "prototype": {
