@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import Editor from 'components/editor';
 
 require('editor.scss');
-require('../node_modules/codemirror/addon/tern/tern.scss');
 
 class App extends React.Component {
   render() {
